@@ -1,0 +1,231 @@
+body {
+    font-family: 'Roboto Mono', monospace;  /* Fuente moderna y legible */
+    background-color: #111;
+    color: #f0f0f0; /* Color de texto más claro y moderno */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: #222;
+    /* Borde RGB animado */
+    border: 3px solid;
+    border-image: linear-gradient(to right, #00ffff, #ff00ff, #ffff00);
+    border-image-slice: 1;
+    padding: 30px; /* Aumenta el padding para una mejor apariencia */
+    width: 85%; /* Aumenta el ancho */
+    max-width: 900px; /* Aumenta el ancho máximo */
+    box-shadow: 0 4px 20px rgba(0, 255, 255, 0.2); /* Sutil sombra azulada */
+    border-radius: 15px; /* Bordes más redondeados */
+    overflow: hidden; /* Evita que el borde sobresalga */
+}
+
+/* Animación para el borde RGB */
+@keyframes rgb-border {
+    0% { border-image: linear-gradient(to right, #00ffff, #ff00ff, #ffff00); }
+    50% { border-image: linear-gradient(to right, #ffff00, #00ffff, #ff00ff); }
+    100% { border-image: linear-gradient(to right, #ff00ff, #ffff00, #00ffff); }
+}
+
+.container {
+    animation: rgb-border 10s linear infinite;
+}
+
+
+h1 {
+    text-align: center;
+    color: #fff; /* Blanco puro para el título */
+    font-size: 2.5em; /* Aumenta el tamaño del título */
+    margin-bottom: 20px;
+    text-transform: uppercase; /* Título en mayúsculas */
+    letter-spacing: 2px; /* Espacio entre letras */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra sutil */
+}
+
+.upload-section, .button-section, .data-display, .config-section {
+    margin-bottom: 25px;
+    padding: 20px;
+    border: 2px dashed rgba(0, 255, 255, 0.3); /* Borde más sutil */
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.2); /* Fondo ligeramente transparente */
+}
+
+/* Estilos para la sección de carga de archivos */
+.upload-section {
+    text-align: center;
+}
+
+/* Oculta el input de tipo file */
+input[type="file"] {
+    display: none;
+}
+
+/* Estilos para el botón de carga personalizado */
+.custom-file-upload {
+    border: 2px solid #00ffff;
+    display: inline-block;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #333;
+    color: #00ffff;
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.custom-file-upload:hover {
+    background-color: #00ffff;
+    color: #111;
+}
+
+/* Estilos para el icono (opcional, si usas Font Awesome) */
+.custom-file-upload i {
+    margin-right: 8px;
+}
+
+#fileInfo {
+    color: #00ffff;
+    margin-top: 15px;
+    font-style: italic;
+}
+
+.button-section {
+    display: flex;
+    justify-content: space-around;
+}
+
+button {
+    background-color: #333;
+    color: #00ffff;
+    border: 2px solid #00ffff;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s; /* Transición para scale */
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+button:hover {
+    background-color: #00ffff;
+    color: #111;
+    transform: scale(1.05); /* Ligeramente más grande al pasar el cursor */
+}
+
+button:disabled {
+    background-color: #555;
+    color: #888;
+    border-color: #888;
+    cursor: not-allowed;
+}
+
+.data-display {
+    border: 2px solid rgba(0, 255, 255, 0.3);
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+#studentList ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#studentList li {
+    padding: 8px 0;
+    border-bottom: 1px dashed rgba(0, 255, 255, 0.3);
+    font-size: 1.1em;
+}
+
+#groupsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.group {
+    background-color: #333;
+    border: 2px solid #00ffff;
+    padding: 15px;
+    margin: 15px;
+    border-radius: 8px;
+    width: 30%;
+    min-width: 250px; /* Aumenta el ancho mínimo */
+    box-shadow: 0 2px 8px rgba(0, 255, 255, 0.2);
+}
+
+.group h3 {
+    color: #00ffff;
+    margin-top: 0;
+    font-size: 1.3em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.group ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.group li {
+    padding: 5px 0;
+    font-size: 1.05em;
+}
+
+.config-section {
+    display: flex;
+    flex-direction: column; /* Apila los elementos verticalmente */
+}
+
+.config-section label {
+    margin-bottom: 8px; /* Espacio debajo de cada etiqueta */
+    color: #00ffff;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.config-section input[type="number"] {
+    background-color: #333;
+    color: #00ffff;
+    border: 2px solid #00ffff;
+    padding: 8px;
+    border-radius: 5px;
+    margin-bottom: 15px; /* Espacio debajo de cada input */
+}
+
+.error {
+    color: #ff4444; /* Rojo más llamativo */
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Sombra para mejor legibilidad */
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .button-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    button {
+        margin-bottom: 15px;
+    }
+
+    .group {
+        width: 90%;
+        min-width: auto;
+    }
+}

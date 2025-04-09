@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Nota Final - Cyberpunk</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Calcular Nota Final</h1>
+
+        <div class="input-group">
+            <label for="corte1">Corte 1 (30%):</label>
+            <input type="number" id="corte1" min="0" max="5" step="0.1">
+        </div>
+
+        <div class="input-group">
+            <label for="corte2">Corte 2 (30%):</label>
+            <input type="number" id="corte2" min="0" max="5" step="0.1">
+        </div>
+
+        <button id="calcular">CALCULAR</button>
+
+        <div id="resultado" class="resultado">
+            <!-- El resultado se mostrará aquí -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formador de Grupos Escolares</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <div class="container">
+        <h1>Formador de Grupos Escolares</h1>
+
+        <div class="upload-section">
+            <input type="file" id="fileInput" accept=".csv, .xlsx, .txt">
+            <label for="fileInput" class="custom-file-upload">
+                <i class="fas fa-upload"></i> Cargar Archivo
+            </label>
+            <p id="fileInfo"></p>
+            <p id="error-message" class="error"></p>
+        </div>
+
+        <div class="button-section">
+            <button id="showListBtn" disabled>Mostrar Lista de Alumnos</button>
+            <button id="formGroupsBtn" disabled>Formar Grupos</button>
+        </div>
+
+        <div class="config-section">
+            <label for="numGrupos">Número de Grupos:</label>
+            <input type="number" id="numGrupos" value="5" min="1">
+
+            <label for="numMujeres">Mujeres por Grupo:</label>
+            <input type="number" id="numMujeres" value="1" min="0">
+
+            <label for="numHombres">Hombres por Grupo:</label>
+            <input type="number" id="numHombres" value="2" min="0">
+        </div>
+
+        <div id="studentList" class="data-display">
+            <h2>Lista de Alumnos</h2>
+            <ul id="studentListUl"></ul>
+        </div>
+
+        <div id="groupsContainer" class="data-display">
+            <h2>Grupos Formados</h2>
+            <!-- Los grupos se agregarán aquí dinámicamente -->
+        </div>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

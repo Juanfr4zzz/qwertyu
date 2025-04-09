@@ -1,0 +1,97 @@
+body {
+    font-family: 'Courier New', monospace; /* Fuente de estilo máquina de escribir */
+    background-color: #000; /* Fondo negro */
+    color: #00FF00; /* Texto verde neón */
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: rgba(0, 255, 0, 0.1); /* Fondo translúcido verde */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5); /* Sombra neón */
+    width: 450px;
+    text-align: center;
+    border: 2px solid #00FF00; /* Borde neón */
+}
+
+h1 {
+    color: #00FF00;
+    text-shadow: 0 0 10px #00FF00; /* Brillo del texto */
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #00FF00;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro para el input */
+    border: 1px solid #00FF00;
+    border-radius: 5px;
+    color: #00FF00;
+    box-sizing: border-box;
+    font-family: 'Courier New', monospace;
+    font-size: 1em;
+}
+
+input[type="number"]:focus {
+    outline: none;
+    box-shadow: 0 0 10px #00FF00;
+}
+
+button {
+    background-color: #00FF00;
+    color: #000;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #00A000; /* Verde más oscuro al pasar el mouse */
+    box-shadow: 0 0 15px #00FF00;
+}
+
+.resultado {
+    margin-top: 30px;
+    padding: 20px;
+    border: 2px dashed #00FF00;
+    border-radius: 8px;
+    background-color: rgba(0, 255, 0, 0.05); /* Fondo translúcido */
+    text-align: center;
+    font-size: 1.1em;
+}
+
+.resultado p {
+    margin: 0;
+    color: #00FF00;
+    text-shadow: 0 0 5px #00FF00;
+}
+
+.error {
+    color: #FF0000; /* Rojo para errores */
+    font-weight: bold;
+    text-shadow: 0 0 5px #FF0000;
+}
