@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Votación Estudiantil Interactivo</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>🗳️ Votación Representante Estudiantil 🗳️</h1>
+        </header>
+
+        <!-- Sección de Configuración Inicial -->
+        <section id="config-section" class="config-section active-section card">
+            <h2>Configuración Inicial</h2>
+            <div class="form-group">
+                <label for="num-voters">Número Máximo de Votantes:</label>
+                <input type="number" id="num-voters" min="1" value="10">
+            </div>
+            <div class="form-group">
+                <label for="num-candidates">Número de Candidatos:</label>
+                <input type="number" id="num-candidates" min="1" max="10" value="2">
+            </div>
+            <button id="start-config-candidates" class="btn btn-primary">Configurar Candidatos</button>
+        </section>
+
+        <!-- Sección de Configuración de Candidatos -->
+        <section id="candidate-config-section" class="candidate-config-section card">
+            <h2>Configurar Candidatos</h2>
+            <div id="candidate-forms-container">
+                <!-- Los formularios de candidatos se insertarán aquí -->
+            </div>
+            <button id="start-voting-button" class="btn btn-success">¡Iniciar Votación!</button>
+        </section>
+
+        <!-- Sección de Votación -->
+        <section id="voting-section" class="voting-section card">
+            <h2>¡Vota por tu Representante!</h2>
+            <div id="status-area" class="status-area">
+                <p>Tiempo restante: <span id="timer">10:00</span></p>
+                <p>Votos emitidos: <span id="votes-cast">0</span> / <span id="total-voters">0</span></p>
+            </div>
+            <div id="candidates-display" class="candidates-grid">
+                <!-- Las tarjetas de candidatos se insertarán aquí -->
+            </div>
+        </section>
+
+        <!-- Sección de Resultados -->
+        <section id="results-section" class="results-section card">
+            <h2>📊 Resultados de la Votación 📊</h2>
+            <div id="results-summary">
+                <p id="winner-announcement">Calculando resultados...</p>
+            </div>
+            <div class="chart-container">
+                <canvas id="results-chart"></canvas>
+            </div>
+             <ul id="detailed-results" class="detailed-results-list">
+                <!-- Detalles por candidato -->
+             </ul>
+        </section>
+
+        <!-- Modal de Verificación -->
+        <div id="verification-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" id="close-modal">×</span>
+                <h3>Verificación Requerida</h3>
+                <p>Ingresa el código ( <strong style="color: #e74c3c;">++++</strong> ) para confirmar tu voto por <strong id="candidate-to-vote"></strong>:</p>
+                <input type="password" id="verification-code" placeholder="Código de Verificación">
+                 <p id="verification-error" class="error-message"></p>
+                <button id="confirm-vote-button" class="btn btn-primary">Confirmar Voto</button>
+                <button id="cancel-vote-button" class="btn btn-secondary">Cancelar</button>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>Desarrollado con HTML, CSS y JavaScript</p>
+    </footer>
+
+    <!-- Librería Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Nuestro Script -->
+    <script src="script.js"></script>
+</body>
+</html>

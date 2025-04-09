@@ -1,0 +1,526 @@
+/* Reset básico y fuentes */
+:root {
+    --primary-color: #3498db; /* Azul vivo */
+    --secondary-color: #2ecc71; /* Verde vivo */
+    --accent-color: #f39c12; /* Naranja */
+    --background-color: #ecf0f1; /* Gris claro */
+    --card-background: #ffffff;
+    --text-color: #34495e; /* Gris oscuro */
+    --error-color: #e74c3c; /* Rojo */
+    --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --border-radius: 10px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 20px auto;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    flex-grow: 1;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--card-background);
+}
+
+header h1 {
+    font-weight: 700;
+    font-size: 2.5em;
+}
+
+/* Estilos de las Tarjetas/Secciones */
+.card {
+    background-color: var(--card-background);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    margin-bottom: 25px;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Ocultar secciones inactivas */
+section {
+    display: none; /* Ocultas por defecto */
+}
+section.active-section {
+    display: block; /* Mostrar la sección activa */
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Formularios */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.form-group input[type="number"],
+.form-group input[type="text"],
+.form-group textarea,
+.form-group input[type="file"],
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+.form-group textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.candidate-form {
+    border: 1px dashed var(--secondary-color);
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+.candidate-form h3 {
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+/* --- CAMBIO: Estabilización de Vista Previa --- */
+.image-preview {
+    display: block; /* Asegura que se comporte como bloque */
+    width: 100px;   /* Ancho fijo */
+    height: 100px;  /* Alto fijo */
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    padding: 3px; /* Padding ligero dentro del borde */
+    border-radius: 4px;
+    object-fit: cover; /* Mantiene proporción, recorta si es necesario */
+    background-color: #eee; /* Color de fondo mientras carga o si falla */
+}
+/* --- FIN CAMBIO --- */
+
+
+/* Botones */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px; /* Botones más redondeados */
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease;
+    margin: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+.btn-primary:hover {
+    background-color: #2980b9; /* Azul más oscuro */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.btn-secondary {
+    background-color: #bdc3c7; /* Gris */
+    color: var(--text-color);
+}
+.btn-secondary:hover {
+    background-color: #95a5a6;
+    transform: translateY(-2px);
+}
+
+
+.btn-success {
+    background-color: var(--secondary-color);
+    color: white;
+}
+.btn-success:hover {
+    background-color: #27ae60; /* Verde más oscuro */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.btn-vote {
+    background-color: var(--accent-color);
+    color: white;
+    margin-top: auto; /* Empuja el botón hacia abajo en flex container */
+    width: 90%; /* Ajustar ancho */
+    padding: 10px 20px; /* Un poco más pequeño para la tarjeta */
+    font-size: 0.95rem;
+}
+.btn-vote:hover {
+    background-color: #d35400; /* Naranja más oscuro */
+    transform: scale(1.05); /* Efecto de zoom ligero */
+}
+.btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+    opacity: 0.7;
+}
+
+/* Sección de Votación y Tarjetas de Candidatos */
+.status-area {
+    display: flex;
+    justify-content: space-around;
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    font-size: 1.1em;
+    font-weight: 600;
+    border: 1px solid #eee;
+}
+#timer {
+    color: var(--error-color); /* Rojo para el tiempo */
+}
+#votes-cast, #total-voters {
+    color: var(--primary-color);
+}
+
+.candidates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    perspective: 1000px; /* Necesario para el efecto 3D flip */
+}
+
+.candidate-card {
+    background-color: transparent; /* El fondo lo da el inner */
+    height: 350px; /* Altura fija para consistencia */
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Animación sutil al hacer hover */
+}
+.candidate-card:hover {
+     transform: translateY(-5px);
+     /* La sombra se aplica ahora al inner para que gire con él */
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.7s;
+    transform-style: preserve-3d;
+    box-shadow: var(--shadow); /* Sombra en el inner */
+    border-radius: var(--border-radius);
+}
+
+/* Efecto Flip: Rotar el inner al hacer hover en la tarjeta */
+.candidate-card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+    border-radius: var(--border-radius);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Centrado vertical por defecto */
+    padding: 20px; /* Padding consistente */
+    overflow: hidden; /* Para controlar el contenido */
+}
+
+.card-front {
+    background: linear-gradient(135deg, #ffffff, #f1f1f1);
+    color: var(--text-color);
+    /* El botón de voto se ha movido al back */
+}
+
+.card-back {
+    background: linear-gradient(135deg, var(--accent-color), #f1c40f); /* Naranja/Amarillo */
+    color: white;
+    transform: rotateY(180deg);
+    justify-content: space-between; /* Espacio entre elementos: título, texto, botón */
+}
+.card-back h4 {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    border-bottom: 1px solid rgba(255,255,255,0.5);
+    padding-bottom: 5px;
+    width: 100%; /* Asegura que la línea ocupe todo el ancho */
+    text-align: center;
+}
+.card-back p {
+    font-size: 0.9rem;
+    text-align: left;
+    overflow-y: auto; /* Scroll si el texto es largo */
+    max-height: 180px; /* Limita altura del texto */
+    margin-bottom: 15px; /* Espacio antes del botón */
+    width: 100%; /* Ocupar ancho */
+    padding: 0 5px; /* Padding lateral para el texto */
+}
+/* Scrollbar simple para la parte trasera */
+.card-back p::-webkit-scrollbar { width: 5px; }
+.card-back p::-webkit-scrollbar-track { background: rgba(255,255,255,0.1); border-radius: 3px;}
+.card-back p::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.5); border-radius: 3px;}
+
+
+.candidate-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%; /* Imagen circular */
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 4px solid var(--primary-color);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.candidate-name {
+    font-weight: 600;
+    font-size: 1.3em;
+    margin-bottom: 10px;
+}
+
+
+/* Modal de Verificación */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro semi-transparente */
+    align-items: center;
+    justify-content: center;
+    animation: fadeInModal 0.3s ease-out;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 450px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    text-align: center;
+    position: relative; /* Para posicionar el botón de cerrar */
+    animation: slideInModal 0.4s ease-out;
+}
+
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+}
+.modal-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+.modal-content p {
+    margin-bottom: 15px;
+}
+#verification-code {
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 1.2em;
+    letter-spacing: 3px;
+}
+.error-message {
+    color: var(--error-color);
+    font-size: 0.9em;
+    margin-top: -5px;
+    margin-bottom: 10px;
+    min-height: 1.2em; /* Para evitar saltos de layout */
+}
+
+@keyframes fadeInModal {
+    from { background-color: rgba(0, 0, 0, 0); }
+    to { background-color: rgba(0, 0, 0, 0.6); }
+}
+
+@keyframes slideInModal {
+     from { transform: translateY(-50px); opacity: 0; }
+     to { transform: translateY(0); opacity: 1; }
+}
+
+/* Sección de Resultados */
+.results-section h2 {
+    color: var(--secondary-color); /* Verde para resultados */
+}
+#results-summary {
+    text-align: center;
+    font-size: 1.4em;
+    margin-bottom: 25px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+.chart-container {
+    position: relative;
+    max-width: 450px; /* Limitar tamaño del gráfico */
+    margin: 20px auto;
+    height: auto; /* Permitir que Chart.js controle la altura */
+}
+
+.detailed-results-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.detailed-results-list li {
+    background-color: #f8f9fa;
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    border-left: 5px solid var(--primary-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1em;
+}
+.detailed-results-list li span {
+    font-weight: 600;
+}
+.detailed-results-list li .percentage {
+    color: var(--secondary-color);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 15px;
+    color: #7f8c8d;
+    font-size: 0.9em;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+    .container {
+        padding: 20px;
+    }
+    .candidates-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 15px;
+    }
+    .candidate-card {
+        height: 320px; /* Ajustar altura en móvil */
+    }
+    .candidate-img {
+        width: 100px;
+        height: 100px;
+    }
+    .candidate-name {
+        font-size: 1.1em;
+    }
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    .modal-content {
+        width: 90%;
+    }
+     .card-back p {
+        max-height: 150px; /* Ajustar altura del texto en móvil */
+    }
+}
+
+@media (max-width: 480px) {
+     header h1 {
+        font-size: 1.8em;
+    }
+    .status-area {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        font-size: 1em;
+    }
+     .candidates-grid {
+        grid-template-columns: 1fr; /* Una columna en pantallas muy pequeñas */
+        gap: 20px;
+    }
+     .candidate-card {
+        height: auto; /* Altura automática para una columna */
+        min-height: 320px;
+    }
+     .card-back p {
+        max-height: 140px; /* Ajustar altura del texto */
+    }
+     .candidate-img {
+         width: 90px;
+         height: 90px;
+     }
+     .btn-vote {
+         font-size: 0.9rem;
+         padding: 8px 15px;
+     }
+}
